@@ -2,7 +2,7 @@
 
 * Студент: [Иван Кириллов](https://up.htmlacademy.ru/ecmascript-individual/2/user/2556705).
 * Наставник: [Иван Цыганов](https://htmlacademy.ru/profile/id888389).
-
+* Проверка наличия репозитория 
 ---
 
 _Не удаляйте и не изменяйте папки и файлы:_
