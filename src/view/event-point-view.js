@@ -1,5 +1,5 @@
 // Вставлять в .trip-events__list
-import { createElement } from '../render.js';
+import AbstractView from '../framework/view/abstract-view.js';
 import { humanizeTaskDueDate, getDuration } from '../utils/utils.js';
 import { DATE_FORMAT } from '../const.js';
 const createEventPointTemplate = (point, destinations, offers) => {
@@ -52,26 +52,18 @@ const createEventPointTemplate = (point, destinations, offers) => {
   );
 };
 
-export default class EventPointView {
+export default class EventPointView extends AbstractView {
+  #point;
+  #destinations;
+  #offers;
   constructor(point, destinations, offers) {
-    this.point = point;
-    this.destinations = destinations;
-    this.offers = offers;
+    super();
+    this.#point = point;
+    this.#destinations = destinations;
+    this.#offers = offers;
   }
 
-  getTemplate() {
-    return createEventPointTemplate(this.point, this.destinations, this.offers);
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
+  get template() {
+    return createEventPointTemplate(this.#point, this.#destinations, this.#offers);
   }
 }

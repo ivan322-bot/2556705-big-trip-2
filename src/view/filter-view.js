@@ -1,5 +1,5 @@
 // Вставлять в .trip-controls__filters
-import {createElement} from '../render.js';
+import AbstractView from '../framework/view/abstract-view.js';
 function createFilterTemplate() {
   return (
     `<form class="trip-filters" action="#" method="get">
@@ -28,20 +28,8 @@ function createFilterTemplate() {
   );
 }
 
-export default class FilterView {
-  getTemplate() {
+export default class FilterView extends AbstractView {
+  get template() {
     return createFilterTemplate();
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
   }
 }

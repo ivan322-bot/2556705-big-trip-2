@@ -1,9 +1,9 @@
+import {render} from '../framework/render.js';
 import SortView from '../view/sort-view.js';
 import EventListView from '../view/event-list-view.js';
 import EventEditView from '../view/event-edit-view.js';
 import EventPointView from '../view/event-point-view.js';
 // !! Вроде как не вставляется import PointModel from '../model/point-model.js';
-import { render } from '../render.js';
 import { DEFAULT_POINT } from '../const.js';
 
 export default class TripPresenter {
@@ -23,11 +23,11 @@ export default class TripPresenter {
     render(new SortView(), this.tripContainer);
     render(this.eventListComponent, this.tripContainer);
 
-    render(new EventEditView(DEFAULT_POINT, destinations, offers), this.eventListComponent.getElement());
-    render(new EventEditView(points[0], destinations, offers), this.eventListComponent.getElement());
+    render(new EventEditView(DEFAULT_POINT, destinations, offers), this.eventListComponent.element);
+    render(new EventEditView(points[0], destinations, offers), this.eventListComponent.element);
 
     for (const point of points) {
-      render(new EventPointView(point, destinations, offers), this.eventListComponent.getElement());
+      render(new EventPointView(point, destinations, offers), this.eventListComponent.element);
     }
   }
 }
