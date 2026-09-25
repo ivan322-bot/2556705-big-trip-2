@@ -2,6 +2,8 @@
 import { createElement } from '../render.js';
 import { humanizeTaskDueDate, getDuration } from '../utils/utils.js';
 import { DATE_FORMAT } from '../const.js';
+
+
 const createEventPointTemplate = (point, destinations, offers) => {
   const { basePrice, isFavorite, dateFrom, dateTo, type } = point;
   const typeOffers = offers.find((off) => off.type === point.type).offers;

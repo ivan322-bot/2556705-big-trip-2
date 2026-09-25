@@ -1,5 +1,11 @@
 // Вставлять в .trip-controls__filters
 import {createElement} from '../render.js';
+
+// Фильтрует все карточки по дате:
+// everything (все карточки покажет),
+// future (только те карточки, где дата события завтра и еще позже)
+// present (только те карточки, где дата события сегодня)
+// past (только те карточки, где дата события уже истекла, т.е. в прошлом)
 function createFilterTemplate() {
   return (
     `<form class="trip-filters" action="#" method="get">

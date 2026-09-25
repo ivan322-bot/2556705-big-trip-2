@@ -1,5 +1,13 @@
 // Вставлять в .trip-events
 import {createElement} from '../render.js';
+
+// Сортирует карточки по таким показателям, как:
+// day (по дате от меньшей к большей)
+// event(по алфавитному порядку),
+// time(по общему времени от меньшего к большему)
+// price (по цене)
+// offers (по кол-ву)
+// Т.е. все сортируется от меньшего к большему
 function createSortTemplate() {
   return (
     `<form class="trip-events__trip-sort  trip-sort" action="#" method="get">

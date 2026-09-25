@@ -1,5 +1,10 @@
 // Вставлять в .trip-main
 import {createElement} from '../render.js';
+
+// Заголовок сайта, где будут показаны:
+// Все пройденные города (Москва-Раменское-Люберцы)
+// В каких числах это пройдет (18-20 мая)
+// Общая стоимость поездки (30 тыс. рублей)
 function createHeaderInfoTemplate() {
   return (
     `<section class="trip-main__trip-info  trip-info">
