@@ -1,4 +1,4 @@
-import {render} from '../framework/render.js';
+import {render} from './framework/render.js';
 import PointModel from './model/point-model.js';
 import TripPresenter from './presenter/trip-presenter.js';
 import HeaderInfoView from './view/header-info-view.js';
