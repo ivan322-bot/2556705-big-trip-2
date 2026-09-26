@@ -7,6 +7,10 @@ const destinations = [
       {
         src: 'http://picsum.photos/300/200?r=0.0762563005163317',
         description: 'Moscow description picture 1'
+      },
+      {
+        src: 'http://picsum.photos/300/200?r=0.0762563005163317',
+        description: 'Moscow description picture 2'
       }
     ]
   },
@@ -18,6 +22,10 @@ const destinations = [
       {
         src: 'http://picsum.photos/300/200?r=0.0762563005163317',
         description: 'London description picture 1'
+      },
+      {
+        src: 'http://picsum.photos/300/200?r=0.0762563005163317',
+        description: 'London description picture 2'
       }
     ]
   },

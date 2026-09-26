@@ -2,7 +2,7 @@
 import AbstractView from '../framework/view/abstract-view.js';
 import { humanizeTaskDueDate, getDuration } from '../utils/utils.js';
 import { DATE_FORMAT } from '../const.js';
-const createEventPointTemplate = (point, destinations, offers) => {
+const createPointTemplate = (point, destinations, offers) => {
   const { basePrice, isFavorite, dateFrom, dateTo, type } = point;
   const typeOffers = offers.find((off) => off.type === point.type).offers;
   const pointOffers = typeOffers.filter((typeOffer) => point.offers.includes(typeOffer.id));
@@ -52,7 +52,7 @@ const createEventPointTemplate = (point, destinations, offers) => {
   );
 };
 
-export default class EventPointView extends AbstractView {
+export default class PointView extends AbstractView {
   #point;
   #destinations;
   #offers;
@@ -69,7 +69,7 @@ export default class EventPointView extends AbstractView {
   }
 
   get template() {
-    return createEventPointTemplate(this.#point, this.#destinations, this.#offers);
+    return createPointTemplate(this.#point, this.#destinations, this.#offers);
   }
 
   #editClickHandler = (evt) => {
