@@ -1,9 +1,13 @@
-import { render, remove, replace } from '../framework/render.js';
+import { render, replace } from '../framework/render.js';
+import {generateFilter} from '../mocks/filter.js';
+import {SORT_ITEMS} from '../const.js';
+import {TEXT_NO_POINTS} from '../const.js';
 import SortView from '../view/sort-view.js';
 import EventListView from '../view/event-list-view.js';
 import PointEditView from '../view/point-edit-view.js';
 import PointView from '../view/point-view.js';
 import NoPointView from '../view/no-points-view.js';
+import FilterView from '../view/filter-view.js';
 // !! Вроде как не вставляется import PointModel from '../model/point-model.js';
 export default class TripPresenter {
   #tripContainer;
@@ -22,16 +26,20 @@ export default class TripPresenter {
 
   init() {
     this.#boardPoints = this.#pointsModel.points;
-
-    render(new SortView(), this.#tripContainer);
+    // Получаем точки для выбранного фильтра (filteredPoints) и вставляем их в render вместо this.#boardPoints
+    const filters = generateFilter(this.#boardPoints);
+    const filterView = new FilterView(filters, TEXT_NO_POINTS);
+    const filteredPoints = filterView.filteredPoints;
+    const sortView = new SortView(SORT_ITEMS);
+    render(sortView, this.#tripContainer);
     render(this.#eventListComponent, this.#tripContainer);
-    if (this.#boardPoints.length === 0) {
-      render(new NoPointView(), this.#eventListComponent.element);
+    if (filteredPoints.length === 0) {
+      render(new NoPointView(filterView.noPointsText), this.#eventListComponent.element);
       return;
     }
 
-    for (let i = 0; i < this.#boardPoints.length; i++) {
-      this.#renderPoint(this.#boardPoints[i]);
+    for (let i = 0; i < filteredPoints.length; i++) {
+      this.#renderPoint(filteredPoints[i]);
     }
   }
 
